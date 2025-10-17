@@ -6,10 +6,5 @@ wp-config.php
 *.log
 *.sql
 local-xdebuginfo.php
-wp-content/uploads/
-wp-content/cache/
-wp-content/upgrade/
-wp-content/backups/
-wp-content/*
 content/themes/
 content/themes/planty/
