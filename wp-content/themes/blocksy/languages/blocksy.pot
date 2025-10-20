@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-10-16 16:52+0000\n"
+"POT-Creation-Date: 2025-10-17 16:01+0000\n"
 "Project-Id-Version: undefined\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;"
@@ -6877,23 +6877,23 @@ msgstr ""
 msgid "Adjust"
 msgstr ""
 
-#: static/js/options/options/ct-color-palettes-mirror.js:185
-#: static/js/options/options/ct-color-palettes-picker.js:169
+#: static/js/options/options/ct-color-palettes-mirror.js:196
+#: static/js/options/options/ct-color-palettes-picker.js:180
 #: static/js/options/options/ct-customize-section-title-actions.js:114
 msgid "Advanced"
 msgstr ""
 
-#: static/js/options/options/ct-color-palettes-mirror.js:200
-#: static/js/options/options/ct-color-palettes-picker.js:184
+#: static/js/options/options/ct-color-palettes-mirror.js:211
+#: static/js/options/options/ct-color-palettes-picker.js:195
 msgid "Color Palettes"
 msgstr ""
 
-#: static/js/options/options/ct-color-palettes-mirror.js:224
-#: static/js/options/options/ct-color-palettes-picker.js:208
+#: static/js/options/options/ct-color-palettes-mirror.js:235
+#: static/js/options/options/ct-color-palettes-picker.js:219
 msgid "Save Palette"
 msgstr ""
 
-#: static/js/options/options/ct-color-palettes-picker.js:247
+#: static/js/options/options/ct-color-palettes-picker.js:258
 msgid "Add New Color"
 msgstr ""
 

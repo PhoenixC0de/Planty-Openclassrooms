@@ -21,7 +21,7 @@ import bezierEasing from 'bezier-easing'
 import Overlay from '../../customizer/components/Overlay'
 
 import { Dropdown } from '@wordpress/components'
-import store from './ct-color-palette-store'
+import storeName, { getStore } from './color-palettes/store'
 import { useSelect, useDispatch } from '@wordpress/data'
 
 export const ColorPalettesContext = createContext({
@@ -73,17 +73,28 @@ const ColorPalettes = ({ option, value, onChange }) => {
 
 ColorPalettes.MetaWrapper = ({ getActualOption }) => {
 	const [isEditingPalettes, setIsEditingPalettes] = useState(false)
-	const { fetchCustomPalettes, syncCustomPalettes } = useDispatch(store)
-	const { customPalettes } = useSelect((select) => {
-		const s = select(store)
-		return {
-			customPalettes: s.getCustomPalettes(),
-		}
-	}, [])
+
+	// Initialize the store lazily
+	const store = getStore()
+
+	const { fetchCustomPalettes, syncCustomPalettes } = store
+		? useDispatch(storeName)
+		: { fetchCustomPalettes: () => {}, syncCustomPalettes: () => {} }
+
+	const { customPalettes } = store
+		? useSelect((select) => {
+				const s = select(storeName)
+				return {
+					customPalettes: s.getCustomPalettes(),
+				}
+		  }, [])
+		: { customPalettes: [] }
 
 	useEffect(() => {
-		fetchCustomPalettes()
-	}, [])
+		if (store && fetchCustomPalettes) {
+			fetchCustomPalettes()
+		}
+	}, [store])
 
 	return (
 		<ColorPalettesContext.Provider

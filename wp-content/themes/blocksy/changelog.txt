@@ -1,3 +1,6 @@
+2.1.17: 2025-10-17
+- Improvement: General fixes and improvements
+
 2.1.16: 2025-10-16
 - Improvement: Don't add cart actions for the second add to cart form in the single product
 - Improvement: Header menu - restored correct default selection after menu deletion

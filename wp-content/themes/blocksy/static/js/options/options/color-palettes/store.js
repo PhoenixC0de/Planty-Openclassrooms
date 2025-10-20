@@ -1,5 +1,7 @@
 import { createReduxStore, register } from '@wordpress/data'
 
+const STORE_NAME = 'ct/color-palette-store'
+
 const DEFAULT_STATE = {
 	isEditingPalettes: false,
 	customPalettes: [],
@@ -47,7 +49,7 @@ const actions = {
 	},
 }
 
-const store = createReduxStore('ct/color-palette-store', {
+const storeConfig = {
 	reducer(state = DEFAULT_STATE, action) {
 		switch (action.type) {
 			case 'SET_CUSTOM_PALETTES':
@@ -92,8 +94,45 @@ const store = createReduxStore('ct/color-palette-store', {
 			}).then((r) => r.json())
 		},
 	},
-})
+}
 
-register(store)
+let storeInstance = null
+let isRegistered = false
 
-export default store
+/**
+ * Get the color palette store instance with lazy registration.
+ * This ensures wp.data is available before attempting to register the store.
+ *
+ * @returns {Object|null} The store instance or null if wp.data is not available
+ */
+export const getStore = () => {
+	// Check if wp.data is available
+	if (typeof window.wp === 'undefined' || !window.wp.data) {
+		console.warn(
+			'wp.data is not available. Color palette store cannot be initialized.'
+		)
+		return null
+	}
+
+	// Return cached instance if already registered
+	if (isRegistered && storeInstance) {
+		return storeInstance
+	}
+
+	// Create and register the store
+	try {
+		storeInstance = createReduxStore(STORE_NAME, storeConfig)
+		register(storeInstance)
+		isRegistered = true
+		return storeInstance
+	} catch (error) {
+		console.error('Failed to register color palette store:', error)
+		return null
+	}
+}
+
+// For backward compatibility, export STORE_NAME
+export { STORE_NAME }
+
+// Default export returns the store name for use with useSelect/useDispatch
+export default STORE_NAME

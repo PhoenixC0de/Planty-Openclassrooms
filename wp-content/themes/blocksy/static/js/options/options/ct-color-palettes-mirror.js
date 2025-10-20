@@ -23,7 +23,7 @@ import Overlay from '../../customizer/components/Overlay'
 import { Dropdown } from '@wordpress/components'
 import { ColorPalettesContext } from './ct-color-palettes-picker'
 
-import store from './ct-color-palette-store'
+import storeName, { getStore } from './color-palettes/store'
 import { useSelect, useDispatch } from '@wordpress/data'
 
 const ColorPalettesMirror = ({ option, value, values, onChange }) => {
@@ -85,17 +85,28 @@ const ColorPalettesMirror = ({ option, value, values, onChange }) => {
 
 ColorPalettesMirror.MetaWrapper = ({ getActualOption }) => {
 	const [isEditingPalettes, setIsEditingPalettes] = useState(false)
-	const { fetchCustomPalettes, syncCustomPalettes } = useDispatch(store)
-	const { customPalettes } = useSelect((select) => {
-		const s = select(store)
-		return {
-			customPalettes: s.getCustomPalettes(),
-		}
-	}, [])
+
+	// Initialize the store lazily
+	const store = getStore()
+
+	const { fetchCustomPalettes, syncCustomPalettes } = store
+		? useDispatch(storeName)
+		: { fetchCustomPalettes: () => {}, syncCustomPalettes: () => {} }
+
+	const { customPalettes } = store
+		? useSelect((select) => {
+				const s = select(storeName)
+				return {
+					customPalettes: s.getCustomPalettes(),
+				}
+		  }, [])
+		: { customPalettes: [] }
 
 	useEffect(() => {
-		fetchCustomPalettes()
-	}, [])
+		if (store && fetchCustomPalettes) {
+			fetchCustomPalettes()
+		}
+	}, [store])
 
 	return (
 		<ColorPalettesContext.Provider
