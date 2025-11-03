@@ -11,3 +11,237 @@ Updated: 2025-10-14 16:11:54
 
 */
 
+.ct-container-full {
+  padding: 0px;
+  width: 100%;
+}
+
+.canette_title {
+  text-align: center;
+  margin: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.canette_main {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+  width: 100%;
+  background-color: #fdfdfd;
+}
+
+/*canette first plan*/
+.canette_main .canette {
+  position: relative;
+  z-index: 2;
+  width: 300px;
+}
+
+/*feuille gauche et droite*/
+.canette_main .feuille_left {
+  position: absolute;
+  top: 150px;
+  left: 30%;
+  z-index: 1;
+  width: 250px;
+}
+
+.canette_main .feuille_right {
+  position: absolute;
+  top: 25%;
+  right: 30%;
+  z-index: 1;
+  width: 250px;
+}
+
+/*fin reglage canette et feuille*/
+
+/* les gouts*/
+.button_envoyer {
+  background-color: #C02E44;
+  border-radius: 5px;
+}
+
+.btn-fraise:hover {
+  background-color: #DC9F96;
+}
+
+
+/* Courbe décorative */
+.border_curve {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  overflow: visible;
+  line-height: 0;
+  z-index: 2;
+}
+
+.border_curve svg {
+  display: block;
+  width: 100%;
+  height: clamp(45px, 10vw, 10px);
+  margin-bottom: -1px;
+}
+
+.border_curve .shape-fill {
+  fill: #FFFFFF;
+}
+
+
+/* formulaire precommande*/
+.gouts-selection {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 10%;
+  justify-content: center;
+}
+
+.gout-block {
+  max-width: 200px !important;
+  max-height: 140px !important;
+  border-radius: 5px !important;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  background-size: cover;
+  background-position: center;
+}
+
+
+/* Champ quantité */
+.champ-quantite {
+  display: block !important;
+  max-width: 35px !important;
+  max-height: 55px !important;
+  margin-top: 5% !important;
+  padding: 5px !important;
+  border: none !important;
+  background-color: white !important;
+  color: #000000;
+  font-size: 16px !important;
+}
+
+.champ-quantite::-webkit-inner-spin-button,
+.champ-quantite::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+.wpcf7-form-control-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Conteneur principal */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  background-color: #3B8E46;
+  font-family: 'Syne', sans-serif;
+}
+
+/* Grille */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.columns.one-half {
+  flex: 1 1 45%;
+}
+
+.columns.full {
+  width: 100%;
+}
+
+/* Champs */
+.field {
+  margin-bottom: 20px;
+}
+
+.field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.field input[type="text"],
+.field input[type="email"],
+.field textarea {
+  width: 100% !important;
+  padding: 12px;
+  border: none;
+  border-radius: 5px !important;
+  background-color: #FFFFFF;
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+/* Uniformiser la hauteur du textarea */
+.field textarea {
+  height: 40px;
+  resize: none !important;
+}
+
+/*reglage dimension case message*/
+.champ_message {
+  padding: 0 !important;
+  height: 10em !important;
+}
+
+/* Info-tip */
+.info-tip {
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.55);
+  margin-top: 4px;
+}
+
+/* Bouton */
+.button_envoyer,
+input[type="submit"].button_envoyer {
+  display: flex !important;
+  justify-content: center !important;
+  max-width: 200px !important;
+  max-height: 55px !important;
+  background-color: #C02E44;
+  color: white;
+  font-weight: bold !important;
+  border: none;
+  border-radius: 5px !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0;
+}
+
+.button_envoyer:hover {
+  background-color: #E0B9B4;
+}
+
+/* Centrage du bouton */
+.columns.full .field {
+  width: auto !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+/*le bouton lui-même */
+.wpcf7-submit {
+  display: block !important;
+  margin: 0 !important;
+  max-width: 200px !important;
+  max-height: 55px !important;
+}
