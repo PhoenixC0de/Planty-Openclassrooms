@@ -150,6 +150,11 @@ if (class_exists('Tribe__Events__Main')) {
 	$supported_post_types[] = 'tribe_events_archive';
 }
 
+if (class_exists('\EventKoi\Init')) {
+	$supported_post_types[] = 'eventkoi_event_single';
+	$supported_post_types[] = 'eventkoi_event_archive';
+}
+
 foreach ($supported_post_types as $post_type) {
 	if (
 		$post_type !== 'single_blog_post'
@@ -163,6 +168,10 @@ foreach ($supported_post_types as $post_type) {
 		$post_type !== 'tribe_events_single'
 		&&
 		$post_type !== 'tribe_events_archive'
+		&&
+		$post_type !== 'eventkoi_event_single'
+		&&
+		$post_type !== 'eventkoi_event_archive'
 	) {
 		$post_type .= '_single';
 	}

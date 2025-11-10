@@ -1,3 +1,7 @@
+2.1.18: 2025-10-30
+- Improvement: Better integration with EventKoi plugin
+- Improvement: Products archive card type 3 - make sure the pre-selected variations are properly initialized
+
 2.1.17: 2025-10-17
 - Improvement: General fixes and improvements
 

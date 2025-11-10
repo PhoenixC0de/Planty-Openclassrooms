@@ -141,7 +141,21 @@ class Blocksy_Static_Css_Files {
 						(
 							$post
 							&&
-							has_shortcode($post->post_content, 'products')
+							(
+								has_shortcode($post->post_content, 'products')
+								||
+								has_shortcode($post->post_content, 'top_rated_products')
+								||
+								has_shortcode($post->post_content, 'featured_products')
+								||
+								has_shortcode($post->post_content, 'sale_products')
+								||
+								has_shortcode($post->post_content, 'best_selling_products')
+								||
+								has_shortcode($post->post_content, 'recent_products')
+								||
+								has_shortcode($post->post_content, 'product_category')
+							)
 						)
 					)
 					&&
@@ -455,6 +469,21 @@ class Blocksy_Static_Css_Files {
 				'url' => '/static/bundle/page-scroll-to-id.min.css',
 				'deps' => ['ct-main-styles'],
 				'enabled' => class_exists('malihuPageScroll2id')
+			],
+
+			[
+				'id' => 'ct-eventkoi-styles',
+				'url' => '/static/bundle/eventkoi.min.css',
+				'deps' => ['ct-main-styles'],
+				'enabled' => (
+					class_exists('\EventKoi\Init')
+					&&
+					(
+						is_singular('event')
+						||
+						is_tax('event_cal')
+					)
+				)
 			]
 		];
 	}

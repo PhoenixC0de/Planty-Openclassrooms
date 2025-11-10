@@ -39,15 +39,18 @@ function blocksy_sync_whole_page($args = []) {
 
 	$selector = 'main#main';
 
-	return array_merge(
-		[
-			'selector' => $selector,
-			'container_inclusive' => true,
-			'render' => function () {
-				echo blocksy_replace_current_template();
-			}
-		],
-		$args
+	return apply_filters(
+		'blocksy:customizer:sync:whole-page',
+		array_merge(
+			[
+				'selector' => $selector,
+				'container_inclusive' => true,
+				'render' => function () {
+					echo blocksy_replace_current_template();
+				}
+			],
+			$args
+		)
 	);
 }
 

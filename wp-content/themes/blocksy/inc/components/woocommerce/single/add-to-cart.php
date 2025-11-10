@@ -208,9 +208,14 @@ class WooCommerceAddToCart {
 		// this means that the add to cart form for the current product is rendered
 		// one more time. So, we need to ignore it and finalize logic in this case.
 		//
+		// This check is needed only on single product pages. The archive pages logic is covered
+		// in finalize logic already.
+		//
 		// This happened for Free Downloads WooCommerce Pro plugin.
-		$this->finalize_action_name = 'woocommerce_before_add_to_cart_button';
-		add_action($this->finalize_action_name, [$this, 'finalize_add_to_cart'], 50);
+		if (blocksy_manager()->screen->is_product()) {
+			$this->finalize_action_name = 'woocommerce_before_add_to_cart_button';
+			add_action($this->finalize_action_name, [$this, 'finalize_add_to_cart'], 50);
+		}
 	}
 
 	public function woocommerce_before_add_to_cart_button() {

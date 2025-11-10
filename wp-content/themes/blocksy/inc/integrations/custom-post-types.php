@@ -16,7 +16,7 @@ class CustomPostTypes {
 				'_builtin' => false,
 			]));
 
-			$potential_post_types = array_values(array_diff($potential_post_types, [
+			$exclude_post_types = [
 
 				// theme
 				'ct_content_block',
@@ -158,7 +158,14 @@ class CustomPostTypes {
 				'ha_library',
 				'ni-order-status',
 				'lws_badge',
-			]));
+			];
+
+			if (class_exists('\EventKoi\Init')) {
+				$exclude_post_types[] = 'event';
+				$exclude_post_types[] = 'eventkoi_event';
+			}
+
+			$potential_post_types = array_values(array_diff($potential_post_types, $exclude_post_types));
 
 			$this->supported_post_types = array_unique(apply_filters(
 				'blocksy:custom_post_types:supported_list',

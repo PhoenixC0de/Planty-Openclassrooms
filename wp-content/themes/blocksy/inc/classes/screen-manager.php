@@ -433,6 +433,26 @@ class Blocksy_Screen_Manager {
 		}
 
 		if (
+			class_exists('\EventKoi\Init')
+			&&
+			(
+				get_post_type() === 'eventkoi_event'
+				||
+				get_post_type() === 'event'
+			)
+		) {
+			$actual_prefix = 'eventkoi_event_single';
+		}
+
+		if (
+			class_exists('\EventKoi\Init')
+			&&
+			is_tax('event_cal')
+		) {
+			$actual_prefix = 'eventkoi_event_archive';
+		}
+
+		if (
 			class_exists('Tribe__Events__Main')
 			&&
 			tribe_is_event()
