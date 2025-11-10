@@ -47,6 +47,30 @@ $trigger_class = trim(
 	)
 );
 
+$svg = blocksy_html_tag(
+	'svg',
+	[
+		'class' => $trigger_class,
+		'width' => '18',
+		'height' => '14',
+		'viewBox' => '0 0 18 14',
+		'data-type' => $trigger_type,
+		'aria-hidden' => 'true'
+	],
+	'
+		<rect y="0.00" width="18" height="1.7" rx="1"/>
+		<rect y="6.15" width="18" height="1.7" rx="1"/>
+		<rect y="12.3" width="18" height="1.7" rx="1"/>
+	'
+);
+
+$svg = apply_filters(
+	'blocksy:header:trigger:svg',
+	$svg,
+	$atts,
+	$trigger_class
+);
+
 ?>
 
 <button
@@ -60,14 +84,5 @@ $trigger_class = trim(
 
 	<span class="<?php echo $label_class ?>" aria-hidden="true"><?php echo $trigger_label ?></span>
 
-	<svg
-		class="<?php echo esc_attr($trigger_class) ?>"
-		width="18" height="14" viewBox="0 0 18 14"
-		data-type="<?php echo esc_attr($trigger_type) ?>"
-		aria-hidden="true">
-
-		<rect y="0.00" width="18" height="1.7" rx="1"/>
-		<rect y="6.15" width="18" height="1.7" rx="1"/>
-		<rect y="12.3" width="18" height="1.7" rx="1"/>
-	</svg>
+	<?php echo $svg ?>
 </button>

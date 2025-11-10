@@ -11,16 +11,30 @@ Updated: 2025-10-14 16:11:54
 
 */
 
+/*css hook admin*/
+.admin-text span {
+  font-family: 'Syne', sans-serif !important;
+  font-weight: 400 !important;
+  color: #000000 !important;
+  padding-left: 16px !important;
+}
+
+
 .ct-container-full {
   padding: 0px;
   width: 100%;
 }
 
-.canette_title {
+.titre_page {
+  font-size: clamp(16px, 3vw, 40px) !important;
   text-align: center;
   margin: 0px;
   margin-left: 0px;
   margin-right: 0px;
+}
+
+.titre_section {
+  font-size: clamp(20px, 2.5vw, 30px) !important;
 }
 
 .canette_main {
@@ -93,6 +107,22 @@ Updated: 2025-10-14 16:11:54
 .border_curve .shape-fill {
   fill: #FFFFFF;
 }
+
+/*formulaire de contact*/
+/* Uniformiser la hauteur du textarea */
+.field textarea {
+  height: 40px;
+  resize: none !important;
+}
+
+/*reglage dimension case message*/
+.champ_message {
+  padding: 0 !important;
+  height: 10em !important;
+}
+
+
+/*bouton envoyer*/
 
 
 /* formulaire precommande*/
@@ -176,10 +206,10 @@ Updated: 2025-10-14 16:11:54
   border-right: 1px solid white;
 }
 
-p .has-white-color,
-.has-text-color,
-.has-link-color,
-.wp-elements-89568c965b2d81bd577280a65e169de7 {
+.page-id-385 p .has-white-color,
+.page-id-385 .has-text-color,
+.page-id-385 .has-link-color,
+.page-id-385 .wp-elements-89568c965b2d81bd577280a65e169de7 {
   border-top: #FFFFFF solid 1px !important;
   padding-top: 5% !important;
   width: 100% !important;
@@ -240,38 +270,57 @@ p .has-white-color,
 }
 
 /* Bouton */
-.button,
-input[type="submit"].button_envoyer {
+.container {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.cf7sg-popup-box {
+  margin: 0 auto !important;
+}
+
+/*le bouton lui-même */
+
+.wpcf7-submit {
   display: flex !important;
   justify-content: center !important;
   max-width: 200px !important;
   max-height: 55px !important;
   background-color: #C02E44;
   color: white;
+  font-size: 16px !important;
   font-weight: bold !important;
   border: none;
   border-radius: 5px !important;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin: 0;
+  margin-bottom: 5px !important;
+  margin-top: 10px !important;
 }
 
-.button:hover {
-  background-color: #E0B9B4;
-}
 
-/* Centrage du bouton */
-.columns.full .field {
-  width: 100% !important;
-  display: flex !important;
-  justify-content: center !important;
-  text-align: center !important;
-}
+/*media queries responsive*/
+@media (max-width: 768px) {
 
-/*le bouton lui-même */
-.wpcf7-submit {
-  display: block !important;
-  margin: 0 !important;
-  max-width: 200px !important;
-  max-height: 55px !important;
+  img.wp-image-356,
+  img.wp-image-73,
+  img.wp-image-73,
+  img.wp-image-72 {
+    display: none !important;
+  }
+
+  :root :where(.is-layout-flex) {
+    gap: 0px !important;
+  }
+
+  .text {
+    font-size: clamp(11px, 3vw, 20px) !important;
+  }
+
+  /*grid de gout en colonne*/
+  body .is-layout-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    padding: 10% !important;
+  }
 }

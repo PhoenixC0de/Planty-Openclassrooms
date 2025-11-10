@@ -79,9 +79,9 @@ function blocksy_template_loop_product_thumbnail($attr) {
 		apply_filters('blocksy:woocommerce:product-card:badges', $badges)
 	);
 	
-	do_action('blocksy:woocommerce:product-card:actions:before');
+	do_action('blocksy:woocommerce:product-card:toolbar:before');
 	echo blocksy_output_product_toolbar();
-	do_action('blocksy:woocommerce:product-card:actions:after');
+	do_action('blocksy:woocommerce:product-card:toolbar:after');
 
 	$gallery_images = apply_filters(
 		'blocksy:woocommerce:product-card:thumbnail:gallery-images',

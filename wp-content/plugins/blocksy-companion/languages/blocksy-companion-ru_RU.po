@@ -1832,7 +1832,7 @@ msgstr "Отображение активных фильтров."
 
 #: framework/premium/extensions/white-label/dashboard-static/js/EditSettings.js:846
 msgid "Hide Video Links"
-msgstr "Скрыть ссылки на видео"
+msgstr "Скрыть ��сылки на видео"
 
 #: framework/premium/extensions/white-label/dashboard-static/js/EditSettings.js:838
 msgid "Hide Documentation Links"
@@ -1840,7 +1840,7 @@ msgstr "Скрыть ссылки на документацию"
 
 #: framework/extensions/newsletter-subscribe/dashboard-static/js/EditCredentials.js:316
 msgid "More information on how to generate an API key for Brevo can be found %shere%s."
-msgstr "Более подробную информацию о том, как сгенерировать API-ключ для Brevo, можно найт�� %sздесь%s."
+msgstr "Более подробную информацию о том, как сгенерировать API-ключ для Brevo, можно найти %sздесь%s."
 
 #: framework/extensions/newsletter-subscribe/dashboard-static/js/EditCredentials.js:188
 msgid "API Version"
@@ -1897,7 +1897,7 @@ msgstr "Обновляются данные таблицы поиска такс
 
 #: framework/premium/extensions/woocommerce-extra/features/filters/includes/taxonomies-products-lookup-table.php:470
 msgid "This tool will regenerate the product taxonomies lookup table data from existing product(s) data. This process may take a while."
-msgstr "Этот механизм восстановит данные таблицы поиска таксономий товаров из существующих данных о товарах. Этот процесс может занять некоторое время."
+msgstr "Этот механизм восстановит данные таблицы поиска таксон��мий товаров из существующих данных о товарах. Этот процесс может занять некоторое время."
 
 #: framework/premium/extensions/woocommerce-extra/features/filters/includes/taxonomies-products-lookup-table.php:469
 msgid "Regenerate the product taxonomies lookup table"
@@ -2484,7 +2484,7 @@ msgstr "У вас нет прав на установку параметров."
 
 #: framework/features/demo-install/install-finish.php:23
 msgid "Sorry, you don't have permission to finish the installation."
-msgstr "У вас нет разрешения н�� завершение установки."
+msgstr "У вас нет разрешения на завершение установки."
 
 #: framework/features/demo-install/content-installer.php:351,
 #: framework/features/demo-install/content-installer.php:346
@@ -2589,7 +2589,7 @@ msgstr "Сделать поле \"Имя\" обязательным для за�
 
 #: static/js/notifications/VersionMismatchNotice.js:59
 msgid "In order to take full advantage of all features the core has to offer - please install and activate the latest version of Blocksy theme."
-msgstr "Чтобы в полной мере воспользоваться всеми возможностями, ус��ановите и активируйте также тему Blocksy."
+msgstr "Чтобы в полной мере воспользоваться всеми возможностями, установите и активируйте также тему Blocksy."
 
 #: framework/views/theme-mismatch.php:40
 #: static/js/notifications/VersionMismatchNotice.js:48
@@ -2941,7 +2941,7 @@ msgstr "Информация о клиенте"
 
 #: framework/premium/extensions/woocommerce-extra/static/js/blocks/ct-order/OrderOverview.js:8
 msgid "Order number"
-msgstr "Номер заказа"
+msgstr "Номер зака��а"
 
 #: framework/premium/extensions/woocommerce-extra/static/js/blocks/ct-order/OrderDetails.js:88
 #: framework/premium/extensions/woocommerce-extra/static/js/blocks/ct-order/OrderOverview.js:28
@@ -3574,7 +3574,7 @@ msgstr "Корзина покупок"
 
 #: framework/premium/extensions/woocommerce-extra/features/filters/feature.php:145
 msgid "Automatically scroll page to top after user interaction."
-msgstr "Автоматическая прокрутк�� страницы вверх после действия."
+msgstr "Автоматическая прокр��тка страницы вверх после действия."
 
 #: framework/premium/extensions/woocommerce-extra/features/filters/feature.php:144
 msgid "Scroll to Top"
@@ -4184,7 +4184,7 @@ msgstr "Выберите, где нужно отображать этот бло
 
 #: framework/premium/features/content-blocks/options/hook.php:40
 msgid "Content Block Display Conditions"
-msgstr "Условия отображения блока содержимого"
+msgstr "Условия отображения блока с��держимого"
 
 #: framework/premium/features/content-blocks/options/header.php:35,
 #: framework/premium/features/content-blocks/options/single.php:15
@@ -4389,7 +4389,7 @@ msgstr "После мета первой записи"
 
 #: framework/premium/features/content-blocks/hooks-manager.php:202
 msgid "Before second post meta"
-msgstr "Перед мета второй записи"
+msgstr "Перед мета второй запи��и"
 
 #: framework/premium/features/content-blocks/hooks-manager.php:194
 msgid "Before first post meta"
@@ -5931,7 +5931,7 @@ msgstr "Выберите, какой набор настроек вы хотит
 
 #: static/js/options/CustomizerOptionsManager.js:420
 msgid "Export Settings"
-msgstr "Параметры экс��орта"
+msgstr "Параметры экспорта"
 
 #: static/js/options/CustomizerOptionsManager.js:406
 msgid "Yes, I am sure"
@@ -10747,7 +10747,7 @@ msgstr "Динамический вывод CSS"
 
 #: framework/features/demo-install.php:98
 msgid "Your PHP installation doesn't have support for XML. Please install the <i>xml</i> or <i>simplexml</i> PHP extension in order to be able to install starter sites. You might need to contact your hosting provider to assist you in doing so."
-msgstr "Ваша установка PHP не поддерживает XML. Установите расширение PHP <i>XML</i> или <i>simplexml</i>, чтобы иметь возможность устанавливать стартовые сайты. Возможно, вам потребуется связаться с вашим хостинг-провайдером, чтобы он помог вам в этом."
+msgstr "Ваша установка PHP не поддерживает XML. Установите расширение PHP <i>XML</i> или <i>simplexml</i>, чтобы иметь во��можность устанавливать стартовые сайты. Возможно, вам потребуется связаться с вашим хостинг-провайдером, чтобы он помог вам в этом."
 
 #: framework/features/conditions-manager.php:315
 msgid "Language"

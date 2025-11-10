@@ -163,6 +163,20 @@ add_filter('blocksy:customizer:sync:whole-page', function ($args) {
 	return $args;
 });
 
-add_filter('get_the_archive_title', function($title, $original_title) {
-	return $original_title;
-}, 10, 2);
+add_action('init', function() {
+	if (
+		! class_exists('\EventKoi\Init')
+		||
+		! is_tax('event_cal')
+		||
+		! is_singular('eventkoi_event')
+		||
+		! is_singular('evnt')
+	) {
+		return;
+	}
+
+	add_filter('get_the_archive_title', function($title, $original_title) {
+		return $original_title;
+	}, 10, 2);
+});
