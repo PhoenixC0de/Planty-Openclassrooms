@@ -202,14 +202,38 @@ class Blocksy_Static_Css_Files {
 			$should_load_flexy_styles = true;
 		}
 
-		return [
-			[
-				'id' => 'ct-main-styles',
+		$should_load_sidebar = (
+			blocksy_sidebar_position() !== 'none'
+			||
+			is_customize_preview()
+			||
+			(
+				function_exists('is_woocommerce')
+				&&
+				is_woocommerce()
+				&&
+				(
+					is_shop()
+					||
+					is_product_category()
+					||
+					is_product_tag()
+					||
+					is_product_taxonomy()
+					||
+					is_search()
+				)
+				&&
+				blocksy_get_theme_mod('has_woo_offcanvas_filter', 'no') === 'yes'
+			)
+		);
+
+		$static_files = [
+			'ct-main-styles' => [
 				'url' => '/static/bundle/main.min.css'
 			],
 
-			[
-				'id' => 'ct-woocommerce-cart-checkout-blocks',
+			'ct-woocommerce-cart-checkout-blocks' => [
 				'url' => '/static/bundle/woocommerce-cart-checkout-blocks.min.css',
 				'enabled' => (
 					has_block('woocommerce/cart')
@@ -218,8 +242,7 @@ class Blocksy_Static_Css_Files {
 				)
 			],
 
-			[
-				'id' => 'ct-admin-frontend-styles',
+			'ct-admin-frontend-styles' => [
 				'url' => '/static/bundle/admin-frontend.min.css',
 				'enabled' => (
 					current_user_can('manage_options')
@@ -228,8 +251,7 @@ class Blocksy_Static_Css_Files {
 				)
 			],
 
-			[
-				'id' => 'ct-page-title-styles',
+			'ct-page-title-styles' => [
 				'url' => '/static/bundle/page-title.min.css',
 				'enabled' => (
 					is_customize_preview()
@@ -238,105 +260,30 @@ class Blocksy_Static_Css_Files {
 				)
 			],
 
-			[
-				'id' => 'ct-main-rtl-styles',
+			'ct-main-rtl-styles' => [
 				'url' => '/static/bundle/main-rtl.min.css',
 				'enabled' => is_rtl()
 			],
 
-			[
-				'id' => 'ct-forminator-styles',
-				'url' => '/static/bundle/forminator.min.css',
-				'deps' => ['ct-main-styles'],
-				'enabled' => class_exists('Forminator')
-			],
-
-			[
-				'id' => 'ct-getwid-styles',
-				'url' => '/static/bundle/getwid.min.css',
-				'deps' => ['ct-main-styles'],
-				'enabled' => class_exists('Getwid\Getwid')
-			],
-
-			[
-				'id' => 'ct-elementor-styles',
-				'url' => '/static/bundle/elementor-frontend.min.css',
-				'deps' => ['ct-main-styles'],
-				'enabled' => did_action('elementor/loaded')
-			],
-
-			[
-				'id' => 'ct-elementor-woocommerce-styles',
-				'url' => '/static/bundle/elementor-woocommerce-frontend.min.css',
-				'deps' => ['ct-main-styles'],
-				'enabled' => (
-					did_action('elementor/loaded')
-					&&
-					function_exists('is_woocommerce')
-				)
-			],
-
-			[
-				'id' => 'ct-tutor-styles',
-				'url' => '/static/bundle/tutor.min.css',
-				'deps' => ['ct-main-styles'],
-				'enabled' => function_exists('tutor_course_enrolled_lead_info')
-			],
-
-			[
-				'id' => 'ct-tribe-events-styles',
-				'url' => '/static/bundle/tribe-events.min.css',
-				'deps' => ['ct-main-styles'],
-				'enabled' => class_exists('Tribe__Events__Main')
-			],
-
-			[
-				'id' => 'ct-sidebar-styles',
+			'ct-sidebar-styles' => [
 				'url' => '/static/bundle/sidebar.min.css',
 				'deps' => ['ct-main-styles'],
-				'enabled' => (
-					blocksy_sidebar_position() !== 'none'
-					||
-					is_customize_preview()
-					||
-					(
-						function_exists('is_woocommerce')
-						&&
-						is_woocommerce()
-						&&
-						(
-							is_shop()
-							||
-							is_product_category()
-							||
-							is_product_tag()
-							||
-							is_product_taxonomy()
-							||
-							is_search()
-						)
-						&&
-						blocksy_get_theme_mod('has_woo_offcanvas_filter', 'no') === 'yes'
-					)
-				)
+				'enabled' => $should_load_sidebar
 			],
 
-			[
-				'id' => 'ct-share-box-styles',
+			'ct-share-box-styles' => [
 				'url' => '/static/bundle/share-box.min.css',
 				'deps' => ['ct-main-styles'],
 				'enabled' => $should_load_share_box
 			],
 
-			[
-				'id' => 'ct-comments-styles',
+			'ct-comments-styles' => [
 				'url' => '/static/bundle/comments.min.css',
 				'deps' => ['ct-main-styles'],
 				'enabled' => $should_load_comments_css
 			],
 
-			[
-				'id' => 'ct-author-box-styles',
+			'ct-author-box-styles' => [
 				'url' => '/static/bundle/author-box.min.css',
 				'deps' => ['ct-main-styles'],
 				'enabled' => (
@@ -350,8 +297,7 @@ class Blocksy_Static_Css_Files {
 				)
 			],
 
-			[
-				'id' => 'ct-posts-nav-styles',
+			'ct-posts-nav-styles' => [
 				'url' => '/static/bundle/posts-nav.min.css',
 				'deps' => ['ct-main-styles'],
 				'enabled' => (
@@ -365,114 +311,126 @@ class Blocksy_Static_Css_Files {
 				)
 			],
 
-			[
-				'id' => 'ct-flexy-styles',
+			'ct-flexy-styles' => [
 				'url' => '/static/bundle/flexy.min.css',
 				'deps' => ['ct-main-styles'],
 				'enabled' => $should_load_flexy_styles
 			],
 
 			// Integrations
-			[
-				'id' => 'ct-brizy-styles',
+			'ct-forminator-styles' => [
+				'url' => '/static/bundle/forminator.min.css',
+				'deps' => ['ct-main-styles'],
+				'enabled' => class_exists('Forminator')
+			],
+
+			'ct-getwid-styles' => [
+				'url' => '/static/bundle/getwid.min.css',
+				'deps' => ['ct-main-styles'],
+				'enabled' => class_exists('Getwid\Getwid')
+			],
+
+			'ct-elementor-styles' => [
+				'url' => '/static/bundle/elementor-frontend.min.css',
+				'deps' => ['ct-main-styles'],
+				'enabled' => did_action('elementor/loaded')
+			],
+
+			'ct-elementor-woocommerce-styles' => [
+				'url' => '/static/bundle/elementor-woocommerce-frontend.min.css',
+				'deps' => ['ct-main-styles'],
+				'enabled' => (
+					did_action('elementor/loaded')
+					&&
+					function_exists('is_woocommerce')
+				)
+			],
+
+			'ct-tutor-styles' => [
+				'url' => '/static/bundle/tutor.min.css',
+				'deps' => ['ct-main-styles'],
+				'enabled' => function_exists('tutor_course_enrolled_lead_info')
+			],
+
+			'ct-tribe-events-styles' => [
+				'url' => '/static/bundle/tribe-events.min.css',
+				'deps' => ['ct-main-styles'],
+				'enabled' => class_exists('Tribe__Events__Main')
+			],
+
+			'ct-brizy-styles' => [
 				'url' => '/static/bundle/brizy.min.css',
 				'deps' => ['ct-main-styles'],
 				'enabled' => function_exists('brizy_load')
 			],
 
-			[
-				'id' => 'ct-jet-woo-builder-styles',
+			'ct-jet-woo-builder-styles' => [
 				'url' => '/static/bundle/jet-woo-builder.min.css',
 				'deps' => ['ct-main-styles'],
 				'enabled' => class_exists('Jet_Woo_Builder')
 			],
 
-			[
-				'id' => 'ct-beaver-styles',
+			'ct-beaver-styles' => [
 				'url' => '/static/bundle/beaver.min.css',
 				'deps' => ['ct-main-styles'],
 				'enabled' => class_exists('FLBuilderLoader')
 			],
 
-			[
-				'id' => 'ct-divi-styles',
+			'ct-divi-styles' => [
 				'url' => '/static/bundle/divi.min.css',
 				'deps' => ['ct-main-styles'],
 				'enabled' => class_exists('ET_Builder_Plugin')
 			],
 
-			// [
-			// 	'id' => 'ct-vc-styles',
-			// 	'url' => '/static/bundle/vc.min.css',
-			// 	'deps' => ['ct-main-styles'],
-			// 	'enabled' => defined('VCV_Version')
-			// ],
-
-			[
-				'id' => 'ct-cf-7-styles',
+			'ct-cf-7-styles' => [
 				'url' => '/static/bundle/cf-7.min.css',
 				'deps' => ['ct-main-styles'],
 				'enabled' => defined('WPCF7_VERSION')
 			],
 
-			// [
-			// 	'id' => 'ct-fluent-form-styles',
-			// 	'url' => '/static/bundle/fluent-form.min.css',
-			// 	'deps' => ['ct-main-styles'],
-			// 	'enabled' => defined('FLUENTFORM')
-			// ],
-
-			[
-				'id' => 'ct-stackable-styles',
+			'ct-stackable-styles' => [
 				'url' => '/static/bundle/stackable.min.css',
 				'deps' => ['ct-main-styles'],
 				'enabled' => defined('STACKABLE_VERSION')
 			],
 
-			[
-				'id' => 'ct-qubely-styles',
+			'ct-qubely-styles' => [
 				'url' => '/static/bundle/qubely.min.css',
 				'deps' => ['ct-main-styles'],
 				'enabled' => defined('QUBELY_VERSION')
 			],
 
-			[
-				'id' => 'ct-bbpress-styles',
+			'ct-bbpress-styles' => [
 				'url' => '/static/bundle/bbpress.min.css',
 				'deps' => ['ct-main-styles'],
 				'enabled' => function_exists('is_bbpress')
 			],
 
-			[
-				'id' => 'ct-buddypress-styles',
+			'ct-buddypress-styles' => [
 				'url' => '/static/bundle/buddypress.min.css',
 				'deps' => ['ct-main-styles'],
 				'enabled' => function_exists('is_buddypress')
 			],
 
-			[
-				'id' => 'ct-wpforms-styles',
+			'ct-wpforms-styles' => [
 				'url' => '/static/bundle/wpforms.min.css',
 				'deps' => ['ct-main-styles'],
 				'enabled' => defined('WPFORMS_VERSION')
 			],
 
-			[
-				'id' => 'ct-dokan-styles',
+			'ct-dokan-styles' => [
 				'url' => '/static/bundle/dokan.min.css',
 				'deps' => ['ct-main-styles'],
 				'enabled' => class_exists('WeDevs_Dokan')
 			],
 
-			[
-				'id' => 'ct-page-scroll-to-id-styles',
+			'ct-page-scroll-to-id-styles' => [
 				'url' => '/static/bundle/page-scroll-to-id.min.css',
 				'deps' => ['ct-main-styles'],
 				'enabled' => class_exists('malihuPageScroll2id')
 			],
 
-			[
-				'id' => 'ct-eventkoi-styles',
+			'ct-eventkoi-styles' => [
 				'url' => '/static/bundle/eventkoi.min.css',
 				'deps' => ['ct-main-styles'],
 				'enabled' => (
@@ -484,12 +442,17 @@ class Blocksy_Static_Css_Files {
 						is_tax('event_cal')
 					)
 				)
-			]
+			],
 		];
+
+		return apply_filters(
+			'blocksy:static-files:all',
+			$static_files
+		);
 	}
 
 	public function enqueue_static_files($theme) {
-		foreach ($this->all_static_files() as $internal_file) {
+		foreach ($this->all_static_files() as $id => $internal_file) {
 			$file = wp_parse_args($internal_file, [
 				'enabled' => true,
 				'deps' => [],
@@ -500,7 +463,7 @@ class Blocksy_Static_Css_Files {
 
 			if (! $file['enabled']) {
 				wp_register_style(
-					$file['id'],
+					$id,
 					$file['url'],
 					$file['deps'],
 					$theme->get('Version')
@@ -510,7 +473,7 @@ class Blocksy_Static_Css_Files {
 			}
 
 			wp_enqueue_style(
-				$file['id'],
+				$id,
 				$file['url'],
 				$file['deps'],
 				$theme->get('Version')

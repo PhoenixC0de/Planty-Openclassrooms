@@ -30,7 +30,17 @@ add_filter('wp_nav_menu_items', 'planty_add_admin_text', 10, 2);
 function planty_add_admin_text($items, $args)
 {
   if (current_user_can('administrator') && is_user_logged_in()) {
-    $items .= '<li class="menu-item admin-text"><span>Admin</span></li>';
+    $items .= '<li class="menu-item admin-link"><a href="' . admin_url() . '">Admin</a></li>';
   }
   return $items;
 }
+// Changer le texte du bouton submit pour le formulaire spécifique
+add_filter('wpcf7_form_tag', function ($tag) {
+  if ($tag['type'] === 'submit') {
+    $form = WPCF7_ContactForm::get_current();
+    if ($form->id() == 405) { // ID exact du formulaire
+      $tag['values'] = ['Commander'];
+    }
+  }
+  return $tag;
+});

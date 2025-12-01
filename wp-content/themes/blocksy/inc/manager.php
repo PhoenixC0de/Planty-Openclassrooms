@@ -148,7 +148,6 @@ class Blocksy_Manager {
 			'wp',
 			function () {
 				$this->screen->wipe_caches();
-				$this->post_types->wipe_caches();
 			},
 			PHP_INT_MAX
 		);
@@ -245,6 +244,11 @@ class Blocksy_Manager {
 				5,
 				'blocksy'
 			),
+
+			'search_live_stock_status_texts' => [
+				'instock' => __('In stock', 'blocksy'),
+				'outofstock' => __('Out of stock', 'blocksy'),
+			],
 
 			'clipboard_copied' => __('Copied!', 'blocksy'),
 			'clipboard_failed' => __('Failed to Copy', 'blocksy'),

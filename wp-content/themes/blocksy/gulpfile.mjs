@@ -513,7 +513,7 @@ var options = {
 		'@wordpress/element',
 		'@creative-themes/flexy',
 		'@wordpress/components',
-		'ct-wordpress-helpers',
+		'@creative-themes/wordpress-helpers',
 	],
 
 	filesToDeleteFromBuild: [

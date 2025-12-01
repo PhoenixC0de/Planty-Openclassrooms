@@ -1,3 +1,15 @@
+2.1.22: 2025-11-27
+- Improvement: Better integration with Visual Portfolio plugin
+- Improvement: Header and footer builder - add possibility to view and remove unsupported items
+- Improvement: Live search - better integration with WooCommerce Dynamic Pricing and Discount Rules plugin
+- Improvement: Smarter detection of all compatible custom post types in case plugins register post types too late
+- Fix: Fix minor issue in Customizer notice modal when the companion plugin is not installed
+
+2.1.21: 2025-11-13
+- Improvement: Archive cards - add option for post meta comments to display even if posts has no comments
+- Improvement: Archive cards - don't apply `wpautop` when "full post" option is used for excerpt element
+- Improvement: Widgets admin screen - make sure the site background is applied to widget areas in order to keep a visual sync with frontend
+
 2.1.20: 2025-11-07
 - Improvement: Mini-cart - use the native WooCommerce `cart-empty` template when there are no products
 

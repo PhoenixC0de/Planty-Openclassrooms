@@ -12,11 +12,18 @@ Updated: 2025-10-14 16:11:54
 */
 
 /*css hook admin*/
-.admin-text span {
-  font-family: 'Syne', sans-serif !important;
-  font-weight: 400 !important;
-  color: #000000 !important;
-  padding-left: 16px !important;
+.admin-link a {
+  font-family: 'Syne', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #000000;
+  padding-right: 30px;
+
+}
+
+.button_nav {
+  width: 200px !important;
+  height: 80px !important;
 }
 
 
@@ -26,11 +33,12 @@ Updated: 2025-10-14 16:11:54
 }
 
 .titre_page {
-  font-size: clamp(16px, 3vw, 40px) !important;
-  text-align: center;
-  margin: 0px;
-  margin-left: 0px;
-  margin-right: 0px;
+  max-width: 100% !important;
+  font-size: clamp(16px, 3vw, 38px) !important;
+  text-align: center !important;
+  margin: 0 !important;
+  padding-left: 18% !important;
+  padding-right: 18% !important;
 }
 
 .titre_section {
@@ -51,88 +59,151 @@ Updated: 2025-10-14 16:11:54
 .canette_main .canette {
   position: relative;
   z-index: 2;
-  width: 300px;
+  width: 20%;
+  height: auto;
 }
 
 /*feuille gauche et droite*/
 .canette_main .feuille_left {
   position: absolute;
-  top: 150px;
-  left: 30%;
+  top: 25%;
+  left: 32.5%;
   z-index: 1;
-  width: 250px;
+  width: 17%;
+  height: auto;
 }
 
 .canette_main .feuille_right {
   position: absolute;
   top: 25%;
-  right: 30%;
+  right: 33%;
   z-index: 1;
-  width: 250px;
+  width: 17%;
+  height: auto;
 }
 
 /*fin reglage canette et feuille*/
 
-/* les gouts*/
-.button_envoyer {
-  background-color: #C02E44;
-  border-radius: 5px;
-}
-
-.btn-fraise:hover {
-  background-color: #DC9F96;
-}
-
-
 /* Courbe décorative */
-.border_curve {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  padding: 0;
-  margin: 0;
+.styled-separator {
+  background: #ECE2DA;
   width: 100%;
-  overflow: visible;
-  line-height: 0;
+  max-width: 100%;
+  height: 50px !important;
+  border-bottom-left-radius: 50% 100%;
+  border-bottom-right-radius: 50% 100%;
+  overflow: hidden;
+}
+
+.light-separator {
+  background: #ECE2DA;
+  width: 100%;
+  max-width: 100%;
+  height: 15px !important;
+  border-bottom-left-radius: 50% 100%;
+  border-bottom-right-radius: 50% 100%;
+  overflow: hidden;
+
+}
+
+
+/*formulaire de contact*/
+.form1_contenaire {
+  position: relative;
+  width: 383px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  position: relative;
   z-index: 2;
 }
 
-.border_curve svg {
+/* Chaque champ */
+.field1 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.field1 label {
   display: block;
-  width: 100%;
-  height: clamp(45px, 10vw, 10px);
-  margin-bottom: -1px;
+  font-weight: 400;
+  margin-bottom: 10px;
+  font-size: 20px !important;
+  color: #000000;
 }
 
-.border_curve .shape-fill {
-  fill: #FFFFFF;
+/* Inputs et textarea */
+.field1 input[type="text"],
+.field1 input[type="email"],
+.field1 textarea {
+  width: 383px;
+  max-width: 100%;
+  height: 71px;
+  padding: 1% 2%;
+  border: none;
+  border-radius: 7px;
+  background-color: #FFFFFF;
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  box-sizing: border-box;
 }
 
-/*formulaire de contact*/
-/* Uniformiser la hauteur du textarea */
-.field textarea {
-  height: 40px;
-  resize: none !important;
-}
-
-/*reglage dimension case message*/
+/* Champ message spécifique */
 .champ_message {
-  padding: 0 !important;
-  height: 10em !important;
+  height: 237px !important;
+  resize: vertical;
 }
 
+/*superposition fleur formulaire*/
+.img-image-565 {
+  width: 148px;
+  height: 135px;
+}
+
+.fleur_formulaire {
+  position: absolute;
+  bottom: 2%;
+  left: 30%;
+  background-size: contain;
+  pointer-events: none;
+  z-index: 1;
+}
 
 /*bouton envoyer*/
+.wpcf7-submit {
+  display: flex !important;
+  justify-content: center !important;
+  margin-top: 20px !important;
+}
+
+.field1 .wpcf7-submit {
+  display: inline-block !important;
+  text-align: center !important;
+  color: white !important;
+  border: none;
+  padding: 14px 24px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  width: 198px !important;
+  height: 55px !important;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+
+.wpcf7-spinner {
+  display: none !important;
+}
 
 
 /* formulaire precommande*/
 .gouts-selection {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 20px;
-  padding-bottom: 60px;
-  margin-bottom: 3%;
-  border-bottom: #FFFFFF solid 1px;
 }
 
 .gout-block {
@@ -140,6 +211,7 @@ Updated: 2025-10-14 16:11:54
   max-height: 140px !important;
   border-radius: 5px !important;
   padding: 0px;
+  margin-bottom: 10%;
   display: flex;
   flex-direction: column;
   background-size: cover;
@@ -150,14 +222,14 @@ Updated: 2025-10-14 16:11:54
 /* Champ quantité */
 .champ-quantite {
   display: block !important;
-  max-width: 35px !important;
-  max-height: 55px !important;
+  max-width: 40px !important;
+  max-height: 56px !important;
   margin-top: 5% !important;
   padding: 5px !important;
   border: none !important;
   background-color: white !important;
   color: #000000;
-  font-size: 16px !important;
+  font-size: 20px !important;
 }
 
 .champ-quantite::-webkit-inner-spin-button,
@@ -184,21 +256,26 @@ Updated: 2025-10-14 16:11:54
   margin-bottom: 7% !important;
   font-size: 30px !important;
   font-weight: 700 !important;
+
 }
 
 .container {
   display: flex;
-  max-width: 960px;
+  width: 864px !important;
   margin: 0 auto;
-  padding: 30px 20px;
+  padding: 0 !important;
   background-color: #3B8E46;
-  font-family: 'Syne', sans-serif;
+  box-sizing: border-box !important;
 }
 
 /* Grille */
 .row {
-  display: flex;
+  display: flex !important;
+  justify-content: space-between !important;
+  width: 100% !important;
   flex-wrap: wrap;
+  border-top: #FFFFFF solid 1px !important;
+  padding-top: 5% !important;
 }
 
 /*saparation colonne*/
@@ -206,23 +283,26 @@ Updated: 2025-10-14 16:11:54
   border-right: 1px solid white;
 }
 
-.page-id-385 p .has-white-color,
-.page-id-385 .has-text-color,
-.page-id-385 .has-link-color,
-.page-id-385 .wp-elements-89568c965b2d81bd577280a65e169de7 {
+.columns.one-half:last-child {
+  padding-left: 34px !important;
+}
+
+.page-id-385 p.textbeform {
   border-top: #FFFFFF solid 1px !important;
   padding-top: 5% !important;
-  width: 100% !important;
+  max-width: 865px !important;
 }
 
 .columns.one-half {
-  padding-right: 15px !important;
-  flex: 1 1 45%;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
 }
 
 .columns.full {
   width: 100%;
 }
+
 
 /* Champs */
 .field {
@@ -231,35 +311,37 @@ Updated: 2025-10-14 16:11:54
 
 .field label {
   display: block;
-  font-weight: 600;
-  margin-bottom: 6px;
-  font-size: 16px;
+  font-weight: 400 !important;
+  font-family: 'Syne', sans-serif;
+  margin-bottom: 10px !important;
+  font-size: 20px !important;
   color: #ffffff;
 }
 
 .field input[type="text"],
 .field input[type="email"],
 .field textarea {
-  width: 100% !important;
-  padding: 12px;
+  max-width: 383px !important;
+  height: 71px;
+  padding: 1% 2%;
+  margin-bottom: 10px !important;
   border: none;
-  border-radius: 5px !important;
+  border-radius: 7px !important;
   background-color: #FFFFFF;
-  color: rgba(0, 0, 0, 0.8);
+  color: white;
   font-size: 16px;
   box-sizing: border-box;
 }
 
 /* Uniformiser la hauteur du textarea */
 .field textarea {
-  height: 40px;
+  height: 71px;
   resize: none !important;
 }
 
 /*reglage dimension case message*/
 .champ_message {
   padding: 0 !important;
-  height: 10em !important;
 }
 
 /* Info-tip */
@@ -284,8 +366,8 @@ Updated: 2025-10-14 16:11:54
 .wpcf7-submit {
   display: flex !important;
   justify-content: center !important;
-  max-width: 200px !important;
-  max-height: 55px !important;
+  width: 200px !important;
+  height: 55px !important;
   background-color: #C02E44;
   color: white;
   font-size: 16px !important;
@@ -294,13 +376,37 @@ Updated: 2025-10-14 16:11:54
   border-radius: 5px !important;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-bottom: 5px !important;
-  margin-top: 10px !important;
+  margin-bottom: 100px !important;
+  margin-top: 40px !important;
 }
 
 
+
 /*media queries responsive*/
-@media (max-width: 768px) {
+
+@media (max-width: 1025px) {
+  .fleur_formulaire {
+    position: absolute;
+    bottom: 2%;
+    left: 22%;
+    background-size: contain;
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
+
+
+@media (max-width: 769px) {
+
+  .titre_page {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+
+  .page-id-385 p.textbeform {
+    text-align: center !important;
+  }
 
   img.wp-image-356,
   img.wp-image-73,
@@ -322,5 +428,84 @@ Updated: 2025-10-14 16:11:54
     grid-template-columns: 1fr !important;
     gap: 10px !important;
     padding: 10% !important;
+  }
+
+  .fleur_formulaire {
+    position: absolute;
+    bottom: 2%;
+    left: 12%;
+    background-size: contain;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .page-id-385 .wp-elements-89568c965b2d81bd577280a65e169de7 {
+    display: flex;
+    justify-content: center;
+  }
+
+  .container {
+    display: flex;
+    max-width: 800px !important;
+  }
+
+  .row {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .columns.one-half:first-child {
+    border-right: none;
+  }
+
+  .columns.one-half:last-child {
+    padding: 0px !important;
+  }
+}
+
+
+@media (max-width: 480px) {
+
+
+
+  .form1_contenaire {
+    width: 100%;
+    margin: 0;
+  }
+
+  .field1 input[type="text"],
+  .field1 input[type="email"],
+  .field1 textarea {
+    display: flex;
+    max-width: 300px;
+    height: 50px;
+  }
+
+  .fleur_formulaire {
+    display: none;
+  }
+
+  .container {
+    display: flex;
+    max-width: 300px !important;
+  }
+
+  .row {
+    max-width: 300px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-top: none !important;
+  }
+
+  .columns.one-half:first-child {
+    max-width: 300px;
+    border-right: none;
+  }
+
+  .columns.one-half:last-child {
+    max-width: 300px;
+    padding: 0px;
   }
 }
